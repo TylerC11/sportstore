@@ -11,7 +11,7 @@ export default function Layout() {
                             </Link>
 
                             <div className="d-flex">
-                                <Link to="/cart" className="test-reset fs-4">
+                                <Link to="/checkout" className="test-reset fs-4">
                                     <i className="bi bi-cart4"></i>
                                 </Link>
                             </div>

@@ -1,8 +1,13 @@
 import {EmbeddedCheckout, EmbeddedCheckoutProvider} from "@stripe/react-stripe-js";
 import {loadStripe} from "@stripe/stripe-js";
 import {useCallback} from "react";
+import Cookies from "js-cookie";
 
 export default function Checkout() {
+    const COOKIE_KEY = "shopping_cart"
+    const cartJSON = Cookies.get(COOKIE_KEY)
+
+
     // Make sure to call `loadStripe` outside of a component’s render to avoid
     // recreating the `Stripe` object on every render.
     // This is your test publishable API key.
@@ -12,6 +17,10 @@ export default function Checkout() {
         // Create a Checkout Session
         const res = await fetch("http://localhost:8080/checkout/create-checkout-session", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: cartJSON
         });
         const data = await res.json();
         return data.clientSecret;
