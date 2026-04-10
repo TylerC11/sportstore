@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Navigate} from "react-router";
+import {Navigate, Link} from "react-router";
 
 export default function Confirmation() {
     const [status, setStatus] = useState(null);
@@ -26,13 +26,28 @@ export default function Confirmation() {
 
     if (status === 'complete') {
         return (
-            <section id="success">
-                <p>
-                    We appreciate your business! A confirmation email will be sent to {customerEmail}.
+            <div className="container-fluid px-4 py-5 text-center">
+                {/* Checkmark icon */}
+                <div className="confirm-icon d-flex align-items-center justify-content-center mx-auto mb-4">
+                    <i className="bi bi-check-lg"></i>
+                </div>
 
-                    If you have any questions, please email <a href="mailto:orders@example.com">orders@example.com</a>.
+                <h1 className="text-white fw-bold mb-3">Order Confirmed!</h1>
+
+                <p className="text-muted mb-4" style={{maxWidth: 440, margin: "0 auto"}}>
+                    We appreciate your business! A confirmation email will be sent to{" "}
+                    <span className="text-gold">{customerEmail}</span>.
+                    <br /><br />
+                    If you have any questions, please email{" "}
+                    <a href="mailto:orders@example.com" className="text-gold">orders@example.com</a>.
                 </p>
-            </section>
+
+                {/* Back to shop */}
+                <Link to="/" className="btn btn-warning">
+                    <i className="bi bi-arrow-left me-2"></i>
+                    Keep Shopping
+                </Link>
+            </div>
         )
     }
 

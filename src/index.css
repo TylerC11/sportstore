@@ -1,0 +1,196 @@
+:root {
+    --bs-body-bg: #1a1a1a;
+    --bs-body-color: #e8d5a3;
+    --bs-card-bg: #222222;
+    --bs-card-border-color: #3a3020;
+    --bs-border-color: #3a3020;
+
+    --retro-gold: #c4932a;
+    --retro-cream: #e8d5a3;
+    --retro-dark: #111111;
+    --retro-card: #222222;
+    --retro-muted: #8a7a5a;
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    border-bottom: 3px solid var(--retro-gold);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--retro-cream) !important;
+}
+
+.navbar-brand span {
+    color: var(--retro-gold);
+}
+
+/* ── HERO ── */
+.hero-banner {
+    border-bottom: 2px solid var(--retro-gold);
+    background-color: var(--retro-dark) !important;
+}
+
+/* ── CARDS ── */
+.card {
+    background-color: var(--retro-card);
+    border-color: var(--bs-card-border-color);
+    transition: border-color 0.15s;
+}
+
+.card:hover {
+    border-color: var(--retro-gold);
+}
+
+.card-img-top {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-bottom: 1px solid var(--bs-card-border-color);
+}
+
+.card-title {
+    color: var(--retro-cream);
+    font-weight: 600;
+}
+
+/* ── DETAILS IMAGE ── */
+.details-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--bs-border-radius);
+    border: 1px solid var(--bs-card-border-color);
+}
+
+/* ── BUTTONS ── */
+.btn-warning {
+    background-color: var(--retro-gold);
+    border-color: var(--retro-gold);
+    color: #111;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.btn-warning:hover {
+    background-color: #a87c22;
+    border-color: #a87c22;
+    color: #111;
+}
+
+.btn-outline-secondary {
+    border-color: var(--retro-muted);
+    color: var(--retro-muted);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #2a2a2a;
+    color: var(--retro-cream);
+}
+
+/* ── TEXT ── */
+.text-gold {
+    color: var(--retro-gold) !important;
+}
+
+.text-muted {
+    color: var(--retro-muted) !important;
+}
+
+/* ── BADGES ── */
+.badge.bg-secondary {
+    background-color: #3a3020 !important;
+    color: var(--retro-cream);
+    letter-spacing: 0.06em;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+    border-top: 3px solid var(--retro-gold);
+    background-color: var(--retro-dark) !important;
+}
+
+/* ── ALERTS ── */
+.alert-success {
+    background-color: #1a3a1a;
+    border-color: #2d5a2d;
+    color: #7ecf7e;
+}
+
+/* ── FORM CONTROLS ── */
+.form-control {
+    background-color: #2a2a2a;
+    border-color: var(--bs-card-border-color);
+    color: var(--retro-cream);
+}
+
+.form-control:focus {
+    background-color: #2a2a2a;
+    border-color: var(--retro-gold);
+    color: var(--retro-cream);
+    box-shadow: 0 0 0 0.2rem rgba(196, 147, 42, 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--retro-muted);
+}
+
+.form-control:disabled {
+    background-color: #1f1f1f;
+    color: var(--retro-muted);
+}
+
+/* ── CONFIRMATION ── */
+.confirm-icon {
+    width: 72px;
+    height: 72px;
+    border: 3px solid var(--retro-gold);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--retro-gold);
+}
+
+/* ── CHAT WIDGET ── */
+.chat-card {
+    border-color: var(--retro-gold) !important;
+}
+
+.chat-header {
+    background-color: var(--retro-dark) !important;
+    border-bottom: 2px solid var(--retro-gold) !important;
+}
+
+.chat-body {
+    background-color: #1a1a1a !important;
+}
+
+.chat-footer-bar {
+    background-color: #111 !important;
+    border-top: 1px solid var(--bs-card-border-color) !important;
+}
+
+.chat-bubble-user {
+    background-color: var(--retro-gold) !important;
+    color: #111 !important;
+    border-radius: 10px 4px 10px 10px !important;
+}
+
+.chat-bubble-assistant {
+    background-color: #2a2a2a !important;
+    color: var(--retro-cream) !important;
+    border: 1px solid var(--bs-card-border-color);
+    border-radius: 4px 10px 10px 10px !important;
+}
+
+@keyframes pulse {
+    0%, 60%, 100% { opacity: .3; }
+    30% { opacity: 1; }
+}

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-// this code assumes you have installed Bootstrap.
 
 const API_BASE = "http://localhost:8080/chat";
 
@@ -59,21 +58,21 @@ export default function ChatWidget() {
             {/* Chat card */}
             {open && (
                 <div
-                    className="card shadow mb-3"
+                    className="card shadow mb-3 chat-card"
                     style={{ width: 300, height: 380 }}
                 >
                     {/* Header */}
-                    <div className="card-header d-flex align-items-center gap-2 py-2">
-            <span
-                className="rounded-circle bg-success"
-                style={{ width: 8, height: 8, display: "inline-block" }}
-            />
+                    <div className="card-header d-flex align-items-center gap-2 py-2 chat-header">
+                        <span
+                            className="rounded-circle bg-success"
+                            style={{ width: 8, height: 8, display: "inline-block" }}
+                        />
                         <div className="flex-grow-1">
-                            <div className="fw-medium" style={{ fontSize: 13 }}>AI Assistant</div>
+                            <div className="fw-medium text-white" style={{ fontSize: 13 }}>AI Assistant</div>
                             <div className="text-muted" style={{ fontSize: 11 }}>Online</div>
                         </div>
                         <button
-                            className="btn-close"
+                            className="btn-close btn-close-white"
                             style={{ fontSize: 10 }}
                             onClick={() => setOpen(false)}
                             aria-label="Close"
@@ -82,7 +81,7 @@ export default function ChatWidget() {
 
                     {/* Messages */}
                     <div
-                        className="card-body overflow-auto d-flex flex-column gap-2 p-2"
+                        className="card-body overflow-auto d-flex flex-column gap-2 p-2 chat-body"
                         style={{ flex: 1 }}
                     >
                         {messages.map((msg, i) => (
@@ -91,13 +90,11 @@ export default function ChatWidget() {
                                 className={`d-flex ${msg.role === "user" ? "justify-content-end" : "justify-content-start"}`}
                             >
                                 <div
-                                    className={`px-2 py-2 rounded ${msg.role === "user" ? "text-white" : "bg-light border text-dark"}`}
+                                    className={`px-2 py-2 ${msg.role === "user" ? "chat-bubble-user" : "chat-bubble-assistant"}`}
                                     style={{
                                         maxWidth: "82%",
                                         fontSize: 13,
                                         lineHeight: 1.5,
-                                        backgroundColor: msg.role === "user" ? "#185FA5" : undefined,
-                                        borderRadius: msg.role === "user" ? "10px 4px 10px 10px" : "4px 10px 10px 10px",
                                     }}
                                 >
                                     {msg.text}
@@ -107,7 +104,7 @@ export default function ChatWidget() {
 
                         {loading && (
                             <div className="d-flex justify-content-start">
-                                <div className="bg-light border px-3 py-2 rounded d-flex gap-1 align-items-center">
+                                <div className="chat-bubble-assistant px-3 py-2 d-flex gap-1 align-items-center">
                                     {([0, 0.2, 0.4] as number[]).map((d, i) => (
                                         <span
                                             key={i}
@@ -122,7 +119,7 @@ export default function ChatWidget() {
                     </div>
 
                     {/* Input */}
-                    <div className="card-footer d-flex gap-2 p-2">
+                    <div className="card-footer d-flex gap-2 p-2 chat-footer-bar">
                         <input
                             autoFocus
                             type="text"
@@ -134,13 +131,13 @@ export default function ChatWidget() {
                             disabled={loading}
                         />
                         <button
-                            className="btn btn-primary btn-sm d-flex align-items-center justify-content-center flex-shrink-0"
+                            className="btn btn-warning btn-sm d-flex align-items-center justify-content-center flex-shrink-0"
                             onClick={sendMessage}
                             disabled={loading || !input.trim()}
                             style={{ width: 32, height: 32, padding: 0 }}
                         >
                             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                                <path d="M14 8L2 2l2.5 6L2 14l12-6z" fill="white"/>
+                                <path d="M14 8L2 2l2.5 6L2 14l12-6z" fill="#111"/>
                             </svg>
                         </button>
                     </div>
@@ -150,18 +147,16 @@ export default function ChatWidget() {
             {/* FAB */}
             <div className="d-flex justify-content-end">
                 <button
-                    className="btn btn-primary rounded-circle d-flex align-items-center justify-content-center shadow"
+                    className="btn btn-warning rounded-circle d-flex align-items-center justify-content-center shadow"
                     onClick={() => setOpen(o => !o)}
                     style={{ width: 48, height: 48, padding: 0 }}
                 >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                         <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                              stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                              stroke="#111" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </button>
             </div>
-
-            <style>{`@keyframes pulse { 0%,60%,100%{opacity:.3} 30%{opacity:1} }`}</style>
         </div>
     );
 }
